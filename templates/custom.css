@@ -1,0 +1,33 @@
+/* Custom styles for cards */
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Custom button style */
+
+.btn-custom {
+  background-color: #6c5ce7;
+
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #5541d8;
+
+  color: white;
+}
+
+/* Custom background for specific sections */
+
+.custom-bg {
+  background-color: #f0f0f0;
+
+  padding: 20px;
+
+  border-radius: 10px;
+}
