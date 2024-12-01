@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash
-from models import db # Also import your database model here
+from models import db,Book # Also import your database model here
 
 # Define your routes inside the 'init_routes' function
 # Feel free to rename the routes and functions as you see fit
@@ -17,34 +17,29 @@ def init_routes(app):
 
 
     @app.route('/add', methods=['GET', 'POST'])
-
     def add_item():
-
         if request.method == 'POST':
+            new_book = Book(
+                title=request.form['title'],
+                author=request.form['author'],
+                year=int(request.form['year']),
+                rating=float(request.form['rating']),
+                genre=request.form['genre'],
+                description=request.form['description'],
+                image_url=request.form['image']
+            )
 
-        # Handle form submission (POST request)
-
-        # Extract item data from form
-
-        # Add item to database
-
-        # Redirect to a success page or item list
-
+            db.session.add(new_book)
+            db.session.commit()
             return redirect(url_for('index'))
 
         else:
-
-        # Display the add item form (GET request)
-
             return render_template('add_item.html')
-
-
 
     @app.route('/update', methods=['POST'])
     def update_item():
         # This route should handle updating an existing item identified by the given ID.
         return render_template('index.html', message=f'Item updated successfully')
-
 
 
     @app.route('/delete', methods=['POST'])
