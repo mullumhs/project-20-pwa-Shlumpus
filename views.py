@@ -42,7 +42,13 @@ def init_routes(app):
         return render_template('index.html', message=f'Item updated successfully')
 
 
-    @app.route('/delete', methods=['POST'])
+    @app.route('/delete', methods=['GET'])
     def delete_item():
+
+        id=request.args.get('id')
+        item = Book.query.get(id)
+        db.session.delete(item)
+        db.session.commit()
+        
         # This route should handle deleting an existing item identified by the given ID.
         return render_template('index.html', message=f'Item deleted successfully')
