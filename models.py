@@ -10,7 +10,7 @@ class Book(db.Model):
     rating = db.Column(db.Float, nullable=False)
     genre = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(100), nullable=False)
-    image_url = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
     
 
 # Define your database model here

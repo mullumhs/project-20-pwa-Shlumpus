@@ -10,11 +10,10 @@ from models import db,Book # Also import your database model here
 def init_routes(app):
 
     @app.route('/', methods=['GET'])
-    def get_items():
+    def index():
         # This route should retrieve all items from the database and display them on the page.
-        return render_template('index.html', message='Displaying all items')
-
-
+        books = Book.query.all()
+        return render_template('index.html', books=books)
 
     @app.route('/add', methods=['GET', 'POST'])
     def add_item():
@@ -26,7 +25,7 @@ def init_routes(app):
                 rating=float(request.form['rating']),
                 genre=request.form['genre'],
                 description=request.form['description'],
-                image_url=request.form['image']
+                image=request.form['image']
             )
 
             db.session.add(new_book)
