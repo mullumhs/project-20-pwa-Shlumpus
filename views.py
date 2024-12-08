@@ -40,6 +40,11 @@ def init_routes(app):
         # This route should handle updating an existing item identified by the given ID.
         return render_template('index.html', message=f'Item updated successfully')
 
+    @app.route('/info', methods=['GET', 'POST'])
+    def display_info():
+        if request.method == 'GET':
+            books = Book.query()
+            return redirect(url_for('info'))
 
     @app.route('/delete', methods=['GET'])
     def delete_item():
