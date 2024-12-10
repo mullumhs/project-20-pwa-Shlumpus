@@ -43,8 +43,9 @@ def init_routes(app):
     @app.route('/info', methods=['GET', 'POST'])
     def display_info():
         if request.method == 'GET':
-            books = Book.query()
-            return redirect(url_for('info'))
+            id=request.args.get('id')
+            books = Book.query.get(id)
+            return render_template('info.html', books=books)
 
     @app.route('/delete', methods=['GET'])
     def delete_item():
