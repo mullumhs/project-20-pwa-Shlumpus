@@ -1,7 +1,100 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<h1>Edit A Book</h1>
+<h1>Edit {{book.title}}</h1>
+    
+    <form method="POST" action="/edit">
+
+      <input type="hidden" name="id" value="{{book.id}}">
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder=""
+          name="title"
+          value="{{book.title}}"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          placeholder=""
+          name="author"
+          value="{{book.author}}"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="year" class="form-label">Year of Publishing</label>
+        <input
+          type="text"
+          class="form-control"
+          id="year"
+          placeholder=""
+          name="year"
+          value="{{book.year}}"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rating"
+          placeholder=""
+          name="rating"
+          value="{{book.rating}}"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="genre"
+          placeholder=""
+          name="genre"
+          value="{{book.genre}}"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder=""
+          rows="3"
+          name="description"
+          value="{{book.description}}"
+        ></textarea>
+      </div>
+    
+      <div class="mb-3">
+        <label for="image" class="form-label">Cover Image URL</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="image"
+          placeholder="URL"
+          name="image"
+          value="{{book.image}}"
+        ></textarea>
+      </div>
+    
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </form>
+    {% endblock %}
 
 <!-- Add your page-specific content here -->
 

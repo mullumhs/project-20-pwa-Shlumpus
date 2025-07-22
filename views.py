@@ -35,25 +35,41 @@ def init_routes(app):
         else:
             return render_template('add_item.html')
 
-    @app.route('/update', methods=['POST'])
-    def update_item():
+    @app.route('/edit', methods=['POST'])
+    def edit_item():
         # This route should handle updating an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item updated successfully')
+        if request.method == 'POST':
+            id = request.form['id']
+            book=Book.query.get_or_404(id)
+            book.title=request.form['title']
+            book.author=request.form['author']
+            book.year=int(request.form['year'])
+            book.rating=float(request.form['rating'])
+            book.genre=request.form['genre']
+            book.description=request.form['description']
+            book.image=request.form['image']
+            db.session.commit()
+            return redirect(url_for('edit_item'))
+        else:        
+            id = request.args.get('id')
+            book=Book.query.get_or_404(id)
+            return render_template('edit_item.html', book=book)
 
     @app.route('/info', methods=['GET', 'POST'])
     def display_info():
         if request.method == 'GET':
             id=request.args.get('id')
-            books = Book.query.get(id)
-            return render_template('info.html', books=books)
+            book = Book.query.get(id)
+            return render_template('info.html', book=book)
+        else:
+            return render_template('add_item.html')
 
     @app.route('/delete', methods=['GET'])
     def delete_item():
-
         id=request.args.get('id')
-        item = Book.query.get(id)
-        db.session.delete(item)
+        book = Book.query.get(id)
+        db.session.delete(book)
         db.session.commit()
         
         # This route should handle deleting an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item deleted successfully')
+        return redirect(url_for('index'))
