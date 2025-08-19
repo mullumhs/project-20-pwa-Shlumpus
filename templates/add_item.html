@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<h1>Add A Book</h1>
+<h1>Add A Track</h1>
 
 <form method="POST" action="/add">
   <div class="mb-3">
@@ -16,24 +16,24 @@
   </div>
 
   <div class="mb-3">
-    <label for="title" class="form-label">Author</label>
+    <label for="title" class="form-label">Producer</label>
     <input
       type="text"
       class="form-control"
-      id="author"
+      id="producer"
       placeholder=""
-      name="author"
+      name="producer"
     />
   </div>
 
   <div class="mb-3">
-    <label for="year" class="form-label">Year of Publishing</label>
+    <label for="date" class="form-label">Release Date</label>
     <input
       type="text"
       class="form-control"
-      id="year"
+      id="date"
       placeholder=""
-      name="year"
+      name="date"
     />
   </div>
 

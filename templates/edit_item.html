@@ -1,11 +1,11 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<h1>Edit {{book.title}}</h1>
+<h1>Edit {{track.title}}</h1>
     
     <form method="POST" action="/edit">
 
-      <input type="hidden" name="id" value="{{book.id}}">
+      <input type="hidden" name="id" value="{{track.id}}">
 
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -15,31 +15,31 @@
           id="title"
           placeholder=""
           name="title"
-          value="{{book.title}}"
+          value="{{track.title}}"
         />
       </div>
     
       <div class="mb-3">
-        <label for="author" class="form-label">Author</label>
+        <label for="producer" class="form-label">producer</label>
         <input
           type="text"
           class="form-control"
-          id="author"
+          id="producer"
           placeholder=""
-          name="author"
-          value="{{book.author}}"
+          name="producer"
+          value="{{track.producer}}"
         />
       </div>
     
       <div class="mb-3">
-        <label for="year" class="form-label">Year of Publishing</label>
+        <label for="date" class="form-label">Release Date</label>
         <input
           type="text"
           class="form-control"
-          id="year"
+          id="date"
           placeholder=""
-          name="year"
-          value="{{book.year}}"
+          name="date"
+          value="{{track.date}}"
         />
       </div>
     
@@ -51,7 +51,7 @@
           id="rating"
           placeholder=""
           name="rating"
-          value="{{book.rating}}"
+          value="{{track.rating}}"
         />
       </div>
     
@@ -63,7 +63,7 @@
           id="genre"
           placeholder=""
           name="genre"
-          value="{{book.genre}}"
+          value="{{track.genre}}"
         />
       </div>
     
@@ -76,7 +76,7 @@
           placeholder=""
           rows="3"
           name="description"
-          value="{{book.description}}"
+          value="{{track.description}}"
         ></textarea>
       </div>
     
@@ -88,7 +88,7 @@
           id="image"
           placeholder="URL"
           name="image"
-          value="{{book.image}}"
+          value="{{track.image}}"
         ></textarea>
       </div>
     
