@@ -1,5 +1,6 @@
+from flask import Flask
 from flask import render_template, request, redirect, url_for, flash
-from models import db,Track # Also import your database model here
+from models import db, Track # Also import your database model here
 
 # Define your routes inside the 'init_routes' function
 # Feel free to rename the routes and functions as you see fit
@@ -12,18 +13,19 @@ def init_routes(app):
     @app.route('/', methods=['GET'])
     def index():
         # This route should retrieve all items from the database and display them on the page.
-        tracks = track.query.all()
+        tracks = Track.query.all()
         return render_template('index.html', tracks=tracks)
 
     @app.route('/add', methods=['GET', 'POST'])
     def add_item():
         if request.method == 'POST':
-            new_track = track(
+            new_track = Track(
                 title=request.form['title'],
                 producer=request.form['producer'],
                 date=int(request.form['date']),
-                rating=float(request.form['rating']),
+                bpm=float(request.form['bpm']),
                 genre=request.form['genre'],
+                mood=request.form['mood'],
                 description=request.form['description'],
                 image=request.form['image']
             )
@@ -44,10 +46,11 @@ def init_routes(app):
             track.title=request.form['title']
             track.producer=request.form['producer']
             track.date=int(request.form['date'])
-            track.rating=float(request.form['rating'])
+            track.bpm=float(request.form['bpm'])
             track.genre=request.form['genre']
+            track.mood=request.form['mood']
             track.description=request.form['description']
-            track.image=request.form['image']
+            track.image=request.form['image']  
             db.session.commit()
             return redirect(url_for('edit_item'))
         else:        

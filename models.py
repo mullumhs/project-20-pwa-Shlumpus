@@ -12,6 +12,7 @@ class Track(db.Model):
     genre = db.Column(db.String(100), nullable=False)
     mood = db.Column(db.String(100), nullable=False)
     image = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
     
 
 # Define your database model here
