@@ -22,8 +22,9 @@ def init_routes(app):
             new_track = Track(
                 title=request.form['title'],
                 producer=request.form['producer'],
-                date=int(request.form['date']),
-                bpm=float(request.form['bpm']),
+                date=str(request.form['date']),
+                bpm=int(request.form['bpm']),
+                key=str(request.form['key']),
                 genre=request.form['genre'],
                 mood=request.form['mood'],
                 description=request.form['description'],
@@ -45,8 +46,9 @@ def init_routes(app):
             track=Track.query.get_or_404(id)
             track.title=request.form['title']
             track.producer=request.form['producer']
-            track.date=int(request.form['date'])
-            track.bpm=float(request.form['bpm'])
+            track.date=str(request.form['date'])
+            track.bpm=int(request.form['bpm'])
+            track.key=str(request.form['key'])
             track.genre=request.form['genre']
             track.mood=request.form['mood']
             track.description=request.form['description']
@@ -56,14 +58,15 @@ def init_routes(app):
         else:        
             id = request.args.get('id')
             track=Track.query.get_or_404(id)
-            return render_template('edit_item.html', track=Track)
+            return render_template('edit_item.html', track=track)
 
     @app.route('/info', methods=['GET', 'POST'])
     def display_info():
         if request.method == 'GET':
             id=request.args.get('id')
-            track = Track.query.get(id)
-            return render_template('info.html', track=Track)
+            track = Track.query.get(id) 
+            print(id)
+            return render_template('info.html', track=track)
         else:
             return render_template('add_item.html')
 

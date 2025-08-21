@@ -1,33 +1,34 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<h1 class="text-center">The Epicest Book Database</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<h1 class="text-center">AudioGhost</h1>
 <br />
 <div class="container">
   <div class="row">
-    {% for book in books %}
+    {% for track in tracks %}
     <div class="col-12 col-md-6 col-lg-3">
       <div class="card mb-4">
         <img
-          src={{book.image}}
+          src={{track.image}}
           class="card-img-top"
           alt="..."
           width="280"
           height="450"
         />
         <div class="card-body">
-          <h5 class="card-title">{{book.title}}</h5>
+          <h5 class="card-title">{{ track.title }}</h5>
           <br />
-          <a href="{{ url_for('display_info', id=book.id) }}"
+          <a href="{{ url_for('display_info', id=track.id) }}"
             ><button
               type="button"
               class="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="info"
-            >
+              data-bs-target="info">
               Details
             </button>
           </a>
-          <a href="{{ url_for('delete_item', id=book.id) }}">
+          <a href="{{ url_for('delete_item', id=track.id) }}">
           <button
             type="button"
             class="btn btn-primary"

@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <h1>Add A Track</h1>
 
@@ -45,6 +46,17 @@
       id="bpm"
       placeholder=""
       name="bpm"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="key" class="form-label">Key</label>
+    <input
+      type="text"
+      class="form-control"
+      id="key"
+      placeholder=""
+      name="key"
     />
   </div>
 
