@@ -13,7 +13,7 @@ class Track(db.Model):
     mood = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=False)
-    
+    audio_file = db.Column(db.String, nullable=False)
 
 # Define your database model here
 # Example: class Item(db.Model):

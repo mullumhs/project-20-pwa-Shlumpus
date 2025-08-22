@@ -28,7 +28,8 @@ def init_routes(app):
                 genre=request.form['genre'],
                 mood=request.form['mood'],
                 description=request.form['description'],
-                image=request.form['image']
+                image=request.form['image'],
+                audio_file=request.form['audio_file']
             )
 
             db.session.add(new_track)
@@ -52,7 +53,8 @@ def init_routes(app):
             track.genre=request.form['genre']
             track.mood=request.form['mood']
             track.description=request.form['description']
-            track.image=request.form['image']  
+            track.image=request.form['image'] 
+            track.audio_file=str(request.form['audio_file'])
             db.session.commit()
             return redirect(url_for('edit_item'))
         else:        
