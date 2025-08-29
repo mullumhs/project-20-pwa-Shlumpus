@@ -2,12 +2,6 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for, flash
 from models import db, Track # Also import your database model here
 
-# Define your routes inside the 'init_routes' function
-# Feel free to rename the routes and functions as you see fit
-# You may need to use multiple methods such as POST and GET for each route
-# You can use render_template or redirect as appropriate
-# You can also use flash for displaying status messages
-
 def init_routes(app):
 
     @app.route('/', methods=['GET'])
