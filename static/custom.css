@@ -38,3 +38,16 @@
 
   border-radius: 10px;
 }
+
+.grad {
+
+  background-image: linear-gradient(purple, pink);
+}
+
+@font-face {
+      font-family: 'MyCustomFont'; /* Choose a descriptive name for your font */
+      src: url('Users\kaelan.taeni1\Downloads\Story_Script\StoryScript-Regular') format('truetype');
+      font-weight: normal; /* Optional: define font weight */
+      font-style: normal;  /* Optional: define font style */
+      font-display: swap;  /* Optional: manages font loading behavior */
+    }
