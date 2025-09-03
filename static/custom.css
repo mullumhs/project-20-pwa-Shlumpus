@@ -39,15 +39,11 @@
   border-radius: 10px;
 }
 
-.grad {
+body {
+  font-family: "Story Script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   background-image: linear-gradient(purple, pink);
+  min-height: 100vh;
 }
-
-@font-face {
-      font-family: 'MyCustomFont'; /* Choose a descriptive name for your font */
-      src: url('Users\kaelan.taeni1\Downloads\Story_Script\StoryScript-Regular') format('truetype');
-      font-weight: normal; /* Optional: define font weight */
-      font-style: normal;  /* Optional: define font style */
-      font-display: swap;  /* Optional: manages font loading behavior */
-    }
