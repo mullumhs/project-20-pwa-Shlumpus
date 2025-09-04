@@ -87,6 +87,16 @@
               Search
             </button>
           </form>
+
+          {% if results %}
+            <h2>Results:</h2>
+            <ul>
+              {% for title in results %}
+                <li>{{ title }}</li>
+              {% endfor %}
+
+            </ul>
+          {% endif %}
         </div>
       </div>
     </nav>

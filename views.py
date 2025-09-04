@@ -72,6 +72,15 @@ def init_routes(app):
         track = Track.query.get(id)
         db.session.delete(track)
         db.session.commit()
+
+    @app.route('/search', methods=["GET", "POST"])
+    def search_items(query):
+        con = sqlite3.connnect("collection.db")
+        cursor = con.cursor()
+        cursor.execute("SELECT title FROM track WHERE name LIKE ?", ('%' + query + '%',))
+        results = cursor.fetchall()
+        con.close()
+        return results
         
         # This route should handle deleting an existing item identified by the given ID.
         return redirect(url_for('index'))
